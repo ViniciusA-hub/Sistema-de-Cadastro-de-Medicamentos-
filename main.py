@@ -41,7 +41,7 @@ def cadastrar_medicamento(medicamentos):
     medicamentos.append(medicamento)
 
     print("\nMedicamento cadastrado com sucesso!")
-    
+
 # Lista os medicamentos
 def listar_medicamentos(medicamentos):
 
@@ -56,3 +56,29 @@ def listar_medicamentos(medicamentos):
         print("Nome:", medicamento["nome"])
         print("Categoria:", medicamento["categoria"])
         print("Quantidade:", medicamento["quantidade"])
+
+# Busca um medicamento pelo nome
+def buscar_medicamento(medicamentos, nome):
+
+    for medicamento in medicamentos:
+        if medicamento["nome"].lower() == nome.lower():
+            return medicamento
+
+    return None
+
+
+# Mostra somente o estoque dos medicamentos
+def mostrar_estoque(medicamentos):
+
+    if len(medicamentos) == 0:
+        print("\nNenhum medicamento cadastrado.")
+        return
+
+    print("\n=== ESTOQUE DE MEDICAMENTOS ===")
+
+    for medicamento in medicamentos:
+        print(
+            f"{medicamento['nome']} - "
+            f"{medicamento['quantidade']} unidades"
+        )
+
