@@ -82,3 +82,54 @@ def mostrar_estoque(medicamentos):
             f"{medicamento['quantidade']} unidades"
         )
 
+# Menu principal
+def menu():
+
+    # Carrega os dados do arquivo quando o programa inicia
+    medicamentos = carregar_medicamentos()
+
+    while True:
+
+        print("\n===== SISTEMA DA FARMÁCIA =====")
+        print("1 - Cadastrar medicamento")
+        print("2 - Listar medicamentos")
+        print("3 - Buscar medicamento")
+        print("4 - Mostrar estoque")
+        print("5 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            cadastrar_medicamento(medicamentos)
+
+        elif opcao == "2":
+            listar_medicamentos(medicamentos)
+
+        elif opcao == "3":
+            nome = input("Digite o nome do medicamento: ")
+
+            resultado = buscar_medicamento(medicamentos, nome)
+
+            if resultado:
+                print("\nMedicamento encontrado!")
+                print("Nome:", resultado["nome"])
+                print("Categoria:", resultado["categoria"])
+                print("Quantidade:", resultado["quantidade"])
+            else:
+                print("\nMedicamento não encontrado.")
+
+        elif opcao == "4":
+            mostrar_estoque(medicamentos)
+
+        elif opcao == "5":
+            # Salva os dados antes de encerrar o programa
+            salvar_medicamentos(medicamentos)
+            print("\nDados salvos. Programa encerrado.")
+            break
+
+        else:
+            print("\nOpção inválida!")
+
+
+# Inicia o programa
+menu()
