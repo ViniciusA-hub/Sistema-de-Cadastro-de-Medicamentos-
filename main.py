@@ -26,3 +26,18 @@ def salvar_medicamentos(medicamentos):
 
         for medicamento in medicamentos:
             escritor.writerow(medicamento)
+# Cadastra um medicamento
+def cadastrar_medicamento(medicamentos):
+    nome = input("Nome do medicamento: ")
+    categoria = input("Categoria: ")
+    quantidade = int(input("Quantidade em estoque: "))
+
+    medicamento = {
+        "nome": nome,
+        "categoria": categoria,
+        "quantidade": quantidade
+    }
+
+    medicamentos.append(medicamento)
+
+    print("\nMedicamento cadastrado com sucesso!")
