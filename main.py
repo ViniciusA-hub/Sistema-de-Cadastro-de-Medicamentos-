@@ -16,4 +16,13 @@ def carregar_medicamentos():
 
     return medicamentos
 
+# Salva todos os medicamentos no arquivo
+def salvar_medicamentos(medicamentos):
+    with open(ARQUIVO, mode="w", newline="", encoding="utf-8") as arquivo:
+        campos = ["nome", "categoria", "quantidade"]
 
+        escritor = csv.DictWriter(arquivo, fieldnames=campos)
+        escritor.writeheader()
+
+        for medicamento in medicamentos:
+            escritor.writerow(medicamento)
