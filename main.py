@@ -41,3 +41,18 @@ def cadastrar_medicamento(medicamentos):
     medicamentos.append(medicamento)
 
     print("\nMedicamento cadastrado com sucesso!")
+    
+# Lista os medicamentos
+def listar_medicamentos(medicamentos):
+
+    if len(medicamentos) == 0:
+        print("\nNenhum medicamento cadastrado.")
+        return
+
+    print("\n=== LISTA DE MEDICAMENTOS ===")
+
+    for medicamento in medicamentos:
+        print("-----------------------------")
+        print("Nome:", medicamento["nome"])
+        print("Categoria:", medicamento["categoria"])
+        print("Quantidade:", medicamento["quantidade"])
